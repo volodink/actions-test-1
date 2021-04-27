@@ -33,8 +33,10 @@ jobs:
           pip install pyserial
 
       - name: Install Arduino CLI 
+        run: cd ~ && sudo curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+      
+      - name: Add Arduino CLI to PATH 
         run: |
-          cd ~ && sudo curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
           export PATH="/home/runner/bin:$PATH"
           source ~/.bashrc
           
