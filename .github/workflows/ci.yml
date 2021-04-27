@@ -42,13 +42,12 @@ jobs:
           echo $PATH
           
       - name: Update Arduino CLI indexes
-        run: /home/runner/bin/arduino-cli core update-index --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+        run: arduino-cli core update-index --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
       - name: Install ESP32 SDK
-        run: /home/runner/bin/arduino-cli core install esp32:esp32 --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+        run: arduino-cli core install esp32:esp32 --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
  
       - name: Run CI on sketches
         run: |
-          /home/runner/bin/arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
-          /home/runner/bin/arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
-
+          arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
+          arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
