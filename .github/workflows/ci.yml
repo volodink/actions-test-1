@@ -39,6 +39,7 @@ jobs:
         run: |
           export PATH="/home/runner/bin:$PATH"
           source ~/.bashrc
+          echo $PATH
           
       - name: Update Arduino CLI indexes
         run: ./arduino-cli core update-index --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
