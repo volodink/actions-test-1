@@ -36,15 +36,16 @@ jobs:
         run: |
           cd ~ && sudo curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
           export PATH="/home/runner/bin:$PATH"
+          source ~/.bashrc
           
       - name: Update Arduino CLI indexes
-        run: arduino-cli core update-index --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+        run: ./arduino-cli core update-index --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
       - name: Install ESP32 SDK
-        run: arduino-cli core install esp32:esp32 --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+        run: ./arduino-cli core install esp32:esp32 --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
  
       - name: Run CI on sketches
         run: |
-          arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
-          arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
+          ./arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
+          ./arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
 
