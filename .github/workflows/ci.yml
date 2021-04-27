@@ -33,7 +33,8 @@ jobs:
           pip install pyserial
 
       - name: Install Arduino CLI 
-        run: curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+        run: |
+          cd /usr/bin && sudo curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 
       - name: Update Arduino CLI indexes
         run: /home/user/actions-test-1/bin/arduino-cli core update-index --additional-urls https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
