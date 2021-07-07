@@ -47,4 +47,8 @@ jobs:
         run: |
           arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
           arduino-cli compile --fqbn esp32:esp32:featheresp32 sketch1/sketch1.ino
+      - name: Run nothing ...
+        run: |
+          echo "Nothing..."
+
 
